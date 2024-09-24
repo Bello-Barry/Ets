@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service de Commande Internationale</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4a90e2">
+  <link rel="apple-touch-icon" href="/images/icon-192x192.png">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js" type="module"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js" type="module"></script>
+</head>
+<body>
+  <!-- Bannière d'introduction -->
+  <header class="banner">
+    <div class="banner-content">
+      <div class="logo">
+        ETS🌐
+      </div>
+      <div class="train">
+
+      </div>
+      <h1>Service à l'international : Expédition TRANSITAIRE et commande d'articles:
+      </h1>
+      <br />
+    <p>
+      De l’imagination
+      •———•———•
+      à la concrétisation
+      Nous vous accompagnons et vous aidons à obtenir tout ce que vous voulez avoir en ligne
+      Assistance totale de l’achat à la livraison à domicile
+    </p>
+    <p>
+      Spécialisé dans l'achat et l'expédition de produits depuis l'Europe, la Asie et l'Amérique.
+    </p>
+    <div class="">
+      <a href="#form" class="btn primary-btn">Faire une demande</a>
+      <a href="#grid-item" class="btnc">⬇️</a>
+    </div>
+
+  </div>
+</header>
+
+<!-- Grille d'images des produits -->
+
+<section class="products-grid">
+  <h2>Exemple de produits</h2>
+  <div class="grid">
+    <div class="grid-item">
+      <img src="img/phone.jpg" alt="Téléphones haut de gamme">
+      <p>
+        Téléphones haut de gamme
+      </p>
+    </div>
+    <div class="grid-item">
+      <img src="img/car.jpg" alt="Voitures de luxe">
+      <p>
+        Voitures
+      </p>
+    </div>
+    <div class="grid-item">
+      <img src="img/laptop.jpg" alt="Ordinateurs">
+      <p>
+        Ordinateurs
+      </p>
+    </div>
+    <div class="grid-item" id="grid-item">
+      <img src="img/console.jpg" alt="Consoles de jeux">
+      <p>
+        Consoles de jeux
+      </p>
+    </div>
+    <div class="grid-item">
+      <img src="img/autre.jpg" alt="Autres produits">
+      <p>
+        Autres
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Section "Nos services" -->
+<section class="services">
+  <h2>Nos Services</h2>
+  <ul>
+    <li><strong>Consultation pour l'achat :</strong> Nous vous aidons à choisir les produits adaptés à vos besoins.</li>
+    <li><strong>Commande sécurisée :</strong> Gestion des achats sur des plateformes internationales.</li>
+    <li><strong>Expédition rapide :</strong> Transport sécurisé des produits dans votre pays.</li>
+    <li><strong>Assistance douanière :</strong> Gestion des douanes et des frais d'importation.</li>
+  </ul>
+</section>
+
+<!-- Section "Exemples de Commandes" -->
+<section class="order-examples">
+  <h2>Exemples de Commandes</h2>
+  <div class="grid">
+    <div class="grid-item">
+      <img src="img/img1.jpg" alt="Commande de téléphones Samsung">
+    </div>
+    <div class="grid">
+      <div class="grid-item">
+        <img src="img/img2.jpg" alt="Commande de téléphones Samsung">
+      </div>
+      <div class="grid">
+        <div class="grid-item">
+          <img src="img/img3.jpg" alt="Commande de téléphones Samsung">
+        </div>
+        <div class="grid">
+          <div class="grid-item">
+            <img src="img/img4.jpg" alt="Commande de téléphones Samsung">
+          </div>
+          <div class="grid">
+            <div class="grid-item">
+              <img src="img/img5.jpg" alt="Commande de téléphones Samsung">
+            </div>
+            <div class="grid">
+              <div class="grid-item">
+                <img src="img/img6.jpg" alt="Commande de téléphones Samsung">
+              </div>
+              <div class="grid">
+                <div class="grid-item">
+                  <img src="img/img7.jpg" alt="Commande de téléphones Samsung">
+                </div>
+
+              </div>
+            </section>
+
+            <!-- Section "Comment ça marche" -->
+            <section class="how-it-works">
+              <h2>Comment ça marche</h2>
+              <div class="steps">
+                <div class="step">
+                  <span class="step-number">1</span>
+                  <p>
+                    Remplir le formulaire de demande
+                  </p>
+                </div>
+                <div class="step">
+                  <span class="step-number">2</span>
+                  <p>
+                    Consultation et devis
+                  </p>
+                </div>
+                <div class="step">
+                  <span class="step-number">3</span>
+                  <p>
+                    Commande et livraison
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Formulaire de demande -->
+            <section class="request-form" id="form">
+              <h2>Faire une demande</h2>
+              <form id="productForm">
+                <div class="form-group">
+                  <label for="productName">Nom du produit</label>
+                  <input type="text" id="productName" required>
+                </div>
+                <div class="form-group">
+                  <label for="productCategory">Catégorie du produit</label>
+                  <select id="productCategory" required>
+                    <option value="">Sélectionnez une catégorie</option>
+                    <option value="Téléphone">Téléphone</option>
+                    <option value="Ordinateur">Ordinateur</option>
+                    <option value="Console de jeux">Console de jeux</option>
+                    <option value="Voiture">Voiture</option>
+                    <option value="Autre">Autre</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="productBrand">Marque</label>
+                  <input type="text" id="productBrand" required>
+                </div>
+                <div class="form-group">
+                  <label for="productCountry">Pays de commande</label>
+                  <select id="productCountry" required>
+                    <option value="">Sélectionnez un pays</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Chine">Asie</option>
+                    <option value="Amérique">Amérique</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn submit-btn">Envoyer</button>
+              </form>
+            </section>
+
+            <footer>
+              <p>
+                &copy; 2024 Service d'Achat et d'Expédition Internationale. Tous droits réservés.
+              </p>
+            </footer>
+
+            <!-- Firebase et Script du formulaire -->
+            <script type="module">
+              import {
+                initializeApp
+              } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+              import {
+                getFirestore,
+                collection,
+                addDoc,
+                serverTimestamp
+              } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+
+              const firebaseConfig = {
+                apiKey: "AIzaSyAWZg09J3DF8-vYjUEMOo_kDANNDwqzWGw",
+                authDomain: "film2bsk.firebaseapp.com",
+                projectId: "film2bsk",
+                storageBucket: "film2bsk.appspot.com",
+                messagingSenderId: "738505652788",
+                appId: "1:738505652788:web:181e77e3ec21167274a861",
+                measurementId: "G-SMW65VQX9G"
+              };
+
+              const app = initializeApp(firebaseConfig);
+              const db = getFirestore(app);
+
+              document.getElementById('productForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const productName = document.getElementById('productName').value;
+                const productCategory = document.getElementById('productCategory').value;
+                const productBrand = document.getElementById('productBrand').value;
+                const productCountry = document.getElementById('productCountry').value;
+
+                try {
+                  await addDoc(collection(db, 'orders'), {
+                    productName,
+                    productCategory,
+                    productBrand,
+                    productCountry,
+                    timestamp: serverTimestamp()
+                  });
+
+                  alert('Votre demande a été soumise avec succès !');
+
+                  const message = `Nouvelle commande:\nProduit: ${productName}\nCatégorie: ${productCategory}\nMarque: ${productBrand}\nPays: ${productCountry}`;
+                  const whatsappURL = `https://api.whatsapp.com/send?phone=+24206 8055858&text=${encodeURIComponent(message)}`;
+                  window.open(whatsappURL, '_blank');
+
+                  // Réinitialiser le formulaire
+                  document.getElementById('productForm').reset();
+                } catch (error) {
+                  console.error('Erreur lors de la soumission : ', error);
+                  alert('Une erreur est survenue lors de la soumission. Veuillez réessayer.');
+                }
+              });
+            </script>
+          </body>
+        </html>
